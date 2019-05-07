@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package>
+  <name>trap_assay</name>
+  <version>0.0.0</version>
+  <description>Multi camera trap assay tracking.</description>
+
+  <maintainer email="toconnel@caltech.edu">Tom O'Connell</maintainer>
+  <author email="toconnel@caltech.edu">Tom O'Connell</author>
+  <license>GPLv3</license>
+  <url>https://github.com/ejhonglab/trap_assay</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>multi_tracker</build_depend>
+  <run_depend>message_runtime</run_depend>
+  <run_depend>multi_tracker</run_depend>
+  <run_depend>metatools</run_depend>
+</package>
