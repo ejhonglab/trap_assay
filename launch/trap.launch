@@ -4,41 +4,43 @@
   <arg name="viewer" default="False" />
   <arg name="compression" default="True" />
 
-  <node name="versionpub" pkg="metatools" type="versionpub.py">
-    <rosparam>
-      package_names: ['metatools', 'trap_assay', 'multi_tracker', 'usb_cam']
-    </rosparam>
-  </node>
+  <group ns="$(arg cam_num)">
+    <node name="versionpub" pkg="metatools" type="versionpub.py">
+      <rosparam>
+        package_names: ['metatools', 'trap_assay', 'multi_tracker', 'usb_cam']
+      </rosparam>
+    </node>
 
-  <include
-    file="$(find multi_tracker)/launch/load_tracking_parameter_yamls.launch"/>
+    <include
+      file="$(find multi_tracker)/launch/load_tracking_parameter_yamls.launch"/>
 
 
-  <!-- TODO remap usb_cam/image_rect to expected camera topic / vice versa, as
-    required -->
+    <!-- TODO remap usb_cam/image_rect to expected camera topic / vice versa, as
+      required -->
 
-  <node name="usb_cam" pkg="usb_cam" type="usb_cam_node">
-    <!-- TODO appropriate framerate? check not duplicates -->
-    <param name="video_device" value="/dev/video$(arg cam_num)"/>
-  
-    <!-- not calibrating cameras for now. maybe use multi_tracker launch file
-         combining usb_cam node and rectification if we do go that route.
-    <param name="camera_info_url"
-      value="file:///home/lab/.ros/camera_info/head_camera.yaml" />
-    -->
-  </node>
-  
-  <include file="$(find multi_tracker)/launch/tracking.launch">
-    <arg name="video_only" value="$(arg video_only)" />
-    <arg name="viewer" value="$(arg viewer)" />
-    <arg name="compression" value="$(arg compression)" />
-    <!-- TODO need to deal w/ this? just set to false?
-    <arg name="track_reconstructed_delta_video"
-      value="$(arg track_reconstructed_delta_video)" />
-    -->
+    <node name="usb_cam" pkg="usb_cam" type="usb_cam_node">
+      <!-- TODO appropriate framerate? check not duplicates -->
+      <param name="video_device" value="/dev/video$(arg cam_num)"/>
+    
+      <!-- not calibrating cameras for now. maybe use multi_tracker launch file
+           combining usb_cam node and rectification if we do go that route.
+      <param name="camera_info_url"
+        value="file:///home/lab/.ros/camera_info/head_camera.yaml" />
+      -->
+    </node>
+    
+    <include file="$(find multi_tracker)/launch/tracking.launch">
+      <arg name="video_only" value="$(arg video_only)" />
+      <arg name="viewer" value="$(arg viewer)" />
+      <arg name="compression" value="$(arg compression)" />
+      <!-- TODO need to deal w/ this? just set to false?
+      <arg name="track_reconstructed_delta_video"
+        value="$(arg track_reconstructed_delta_video)" />
+      -->
 
-    <!-- necessary?
-    <arg name="camera" value="$(arg camera)" />
-    -->
-  </include>
+      <!-- necessary?
+      <arg name="camera" value="$(arg camera)" />
+      -->
+    </include>
+  </group>
 </launch>
