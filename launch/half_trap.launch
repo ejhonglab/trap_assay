@@ -3,6 +3,7 @@
   <arg name="video_only" default="True" />
   <arg name="viewer" default="False" />
   <arg name="compression" default="True" />
+  <arg name="focus" default="51" />
 
   <group ns="$(arg cam_num)">
     <node name="versionpub" pkg="metatools" type="versionpub.py">
@@ -14,13 +15,11 @@
     <include
       file="$(find multi_tracker)/launch/load_tracking_parameter_yamls.launch"/>
 
-
-    <!-- TODO remap usb_cam/image_rect to expected camera topic / vice versa, as
-      required -->
-
-    <node name="usb_cam" pkg="usb_cam" type="usb_cam_node">
+    <node name="usb_cam" pkg="usb_cam" type="usb_cam_node" required="true">
       <!-- TODO appropriate framerate? check not duplicates -->
       <param name="video_device" value="/dev/video$(arg cam_num)"/>
+      <param name="framerate" value="5"/>
+      <param name="focus" value="$(arg focus)"/>
     
       <!-- not calibrating cameras for now. maybe use multi_tracker launch file
            combining usb_cam node and rectification if we do go that route.
@@ -38,9 +37,7 @@
         value="$(arg track_reconstructed_delta_video)" />
       -->
 
-      <!-- necessary?
-      <arg name="camera" value="$(arg camera)" />
-      -->
+      <arg name="camera" value="usb_cam/image_raw" />
     </include>
   </group>
 </launch>
