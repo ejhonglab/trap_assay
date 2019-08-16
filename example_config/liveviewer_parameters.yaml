@@ -1,4 +1,4 @@
-multi_tracker/liveviewer/image_topic: '/image_raw'
+multi_tracker/liveviewer/image_topic: 'camera/image_raw'
 multi_tracker/liveviewer/camera_encoding: 'mono8'
 multi_tracker/liveviewer/min_persistence_to_draw: 0
 multi_tracker/liveviewer/max_frames_to_draw: 100

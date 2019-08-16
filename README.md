@@ -1,7 +1,14 @@
 
+### One-line install
+```
+curl -s https://raw.githubusercontent.com/ejhonglab/trap_assay/master/install.sh | bash
+```
+Just paste this in to a terminal, hit enter, and type in your password as needed.
+
 ### Dependencies
 
-TODO add usb_cam (what changes were in my fork again?)
+[tom-f-oconnell/usb_cam](https://github.com/tom-f-oconnell/usb_cam)
+Definitely works with my fork, but may also work with upstream `usb_cam`.
 
 [tom-f-oconnell/multi_tracker](https://github.com/tom-f-oconnell/multi_tracker)
 
