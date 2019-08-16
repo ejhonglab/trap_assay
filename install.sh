@@ -7,9 +7,7 @@ git clone https://github.com/tom-f-oconnell/metatools
 git clone https://github.com/tom-f-oconnell/usb_cam
 git clone https://github.com/ejhonglab/trap_assay
 cd ~/catkin
-# TODO need to have sourced ~/.bashrc?
-# need to put in multi_tracker install then
-# (and maybe only there)?
+source /opt/ros/kinetic/setup.bash
 catkin_make
 
 mkdir ~/experiments
