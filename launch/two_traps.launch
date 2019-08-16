@@ -1,0 +1,39 @@
+<launch>
+  <arg name="video_only" default="True" />
+  <arg name="viewer" default="False" />
+  <arg name="compression" default="False" />
+
+  <include file="$(find trap_assay)/launch/half_trap.launch">
+    <arg name="cam_num" value="0" />
+    <arg name="video_only" value="$(arg video_only)" />
+    <arg name="viewer" value="$(arg viewer)" />
+    <arg name="compression" value="$(arg compression)" />
+    <!-- Assuming this camera is on the top. -->
+    <arg name="focus" value="30" />
+  </include>
+  <include file="$(find trap_assay)/launch/half_trap.launch">
+    <arg name="cam_num" value="1" />
+    <arg name="video_only" value="$(arg video_only)" />
+    <arg name="viewer" value="$(arg viewer)" />
+    <arg name="compression" value="$(arg compression)" />
+    <!-- Assuming this camera is on the top. -->
+    <arg name="focus" value="30" />
+  </include>
+
+  <include file="$(find trap_assay)/launch/half_trap.launch">
+    <arg name="cam_num" value="2" />
+    <arg name="video_only" value="$(arg video_only)" />
+    <arg name="viewer" value="$(arg viewer)" />
+    <arg name="compression" value="$(arg compression)" />
+    <!-- Assuming this camera is on the side. -->
+    <arg name="focus" value="110" />
+  </include>
+  <include file="$(find trap_assay)/launch/half_trap.launch">
+    <arg name="cam_num" value="3" />
+    <arg name="video_only" value="$(arg video_only)" />
+    <arg name="viewer" value="$(arg viewer)" />
+    <arg name="compression" value="$(arg compression)" />
+    <!-- Assuming this camera is on the side. -->
+    <arg name="focus" value="110" />
+  </include>
+</launch>
