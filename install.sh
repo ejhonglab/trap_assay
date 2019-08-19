@@ -2,6 +2,12 @@
 
 # TODO use wget instead of curl. in multi_tracker install scripts + trap_assay one liner
 curl -s https://raw.githubusercontent.com/tom-f-oconnell/multi_tracker/master/setup/install.sh | bash
+if [ $? -eq 0 ]; then
+    echo "multi_tracker installed successfully"
+else
+    echo "multi_tracker install failed! exiting!"
+    exit 1
+fi
 
 cd ~/catkin/src
 git clone https://github.com/tom-f-oconnell/metatools
