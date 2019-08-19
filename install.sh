@@ -15,10 +15,19 @@ git clone https://github.com/tom-f-oconnell/usb_cam
 git clone https://github.com/ejhonglab/trap_assay
 cd ~/catkin
 
+# Otherwise some rosdep install will fail on fresh systems without pip.
+sudo apt-get install python-pip -y
+
 source /opt/ros/kinetic/setup.bash
 # this one might not be necessary
 source ~/catkin/devel/setup.bash
 rosdep install -y metatools
+if [ $? -eq 0 ]; then
+    echo "metatools dependencies installed successfully"
+else
+    echo "metatools dependencies were NOT installed successfully. exiting!"
+    exit 1
+fi
 
 catkin_make
 
