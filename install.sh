@@ -14,7 +14,12 @@ git clone https://github.com/tom-f-oconnell/metatools
 git clone https://github.com/tom-f-oconnell/usb_cam
 git clone https://github.com/ejhonglab/trap_assay
 cd ~/catkin
+
 source /opt/ros/kinetic/setup.bash
+# this one might not be necessary
+source ~/catkin/devel/setup.bash
+rosdep install -y metatools
+
 catkin_make
 
 mkdir ~/experiments
