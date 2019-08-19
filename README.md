@@ -5,6 +5,9 @@ curl -s https://raw.githubusercontent.com/ejhonglab/trap_assay/master/install.sh
 ```
 Just paste this in to a terminal, hit enter, and type in your password as needed.
 
+When it finishes running, open a new terminal or type `. ~/.bashrc` to reload
+some required settings.
+
 ### Dependencies
 
 [tom-f-oconnell/usb_cam](https://github.com/tom-f-oconnell/usb_cam)
