@@ -27,8 +27,9 @@ Install these dependencies as you would install any ROS package from source, i.e
 
 - `cd` to a directory with configuration files for the tracking.
 - Run ```ROS_HOME=`pwd` roslaunch trap_assay trap.launch```
-  (although if the output of `alias roslaunch` starts with `ROS_HOME=``pwd`` `,
-  then you can just run ```roslaunch trap_assay trap.launch```)
+  (although if the output of `alias roslaunch` starts with 
+  ````ROS_HOME=`pwd` roslaunch```, then you can just run 
+  ```roslaunch trap_assay trap.launch```)
 
 #### Parameters to the launch file
 
