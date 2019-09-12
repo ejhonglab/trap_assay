@@ -9,6 +9,9 @@ else
     exit 1
 fi
 
+# Otherwise setting focus won't work right for the cameras.
+sudo apt install v4l-utils
+
 cd ~/catkin/src
 git clone https://github.com/tom-f-oconnell/metatools
 git clone https://github.com/tom-f-oconnell/usb_cam

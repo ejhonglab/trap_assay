@@ -4,6 +4,7 @@
   <arg name="viewer" default="False" />
   <arg name="compression" default="True" />
   <arg name="focus" default="51" />
+  <arg name="framerate" default="5" />
 
   <group ns="$(arg cam_num)">
     <node name="versionpub" pkg="metatools" type="versionpub.py">
@@ -18,8 +19,9 @@
     <node name="usb_cam" pkg="usb_cam" type="usb_cam_node" required="true">
       <!-- TODO appropriate framerate? check not duplicates -->
       <param name="video_device" value="/dev/video$(arg cam_num)"/>
-      <param name="framerate" value="5"/>
+      <param name="framerate" value="$(arg framerate)"/>
       <param name="focus" value="$(arg focus)"/>
+      <param name="autofocus" value="False"/>
     
       <!-- not calibrating cameras for now. maybe use multi_tracker launch file
            combining usb_cam node and rectification if we do go that route.
