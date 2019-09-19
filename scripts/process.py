@@ -64,7 +64,7 @@ for raw_data_dir in raw_data_dirs.split(':'):
         avi_host = host
         if avi_host not in avi_host2cams:
             avi_host = 'default'
-        if cam_num in avi_host2cams[host]:
+        if cam_num in avi_host2cams[avi_host]:
             cmds = ['rosrun', 'multi_tracker', 'bag2vid.py']
             p = sp.Popen(cmds, cwd=input_dir)
             p.communicate()
