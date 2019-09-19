@@ -26,6 +26,12 @@ Install these dependencies as you would install any ROS package from source, i.e
 - `source <workspace>/devel/setup.bash`
 	- You can put this line in your `~/.bashrc` file, towards the bottom. If you do, make sure to put it AFTER the other line that sources some `setup.bash` file ROS uses.
 
+### Analysis computer installation
+
+On the analysis computer, also copy `example_cam_purpose_config.yaml` to 
+`cam_purpose_config.yaml` (in the same directory). Edit as needed.
+
+
 ### To run the experiment
 
 - `cd` to a directory with configuration files for the tracking.
