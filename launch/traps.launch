@@ -1,7 +1,7 @@
 <launch>
   <arg name="video_only" default="True" />
   <arg name="viewer" default="False" />
-  <arg name="compression" default="False" />
+  <arg name="compression" default="True" />
   <arg name="framerate" default="5" />
 
   <include file="$(find trap_assay)/launch/half_trap.launch">
