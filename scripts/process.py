@@ -117,7 +117,12 @@ for raw_data_dir in raw_data_dirs.split(':'):
     print('')
 
     input_parent, input_pathend = split(normpath(raw_data_dir))
-    output_pathend = raw_data_dir2tracking_output_dir[input_pathend]
+    if input_pathend in raw_data_dir2tracking_output_dir:
+        output_pathend = raw_data_dir2tracking_output_dir[input_pathend]
+    else:
+        print('No tracking output specified for this input directory')
+        continue
+
     retracking_dir = join(input_parent, output_pathend)
     print('Using {} as retracking dir'.format(retracking_dir))
 
