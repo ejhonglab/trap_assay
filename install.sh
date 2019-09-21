@@ -20,10 +20,6 @@ sudo apt install openssh-server
 sudo apt install openvpn nfs-common
 sudo mkdir /mnt/nas
 sudo chmod 777 /mnt/nas
-# This link will be broken until mount point is setup
-# TODO that ok? (didn't seem to work as part of vagrant setup, but did when
-# pasting into vagrant shell...)
-ln -s /mnt/nas/Kristina/direct2nas_experiments $HOME/nas_experiments
 sudo su -c "echo '# Uncomment line below to allow NAS access on boot' >> /etc/fstab"
 sudo su -c "echo '#storage:/volume1/main /mnt/nas nfs auto,nofail,noatime,nolock,intr,tcp,actimeo=1800 0 0' >> /etc/fstab"
 
